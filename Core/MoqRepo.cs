@@ -14,10 +14,11 @@ namespace Core
             _mock.Setup(repo => repo.GetCategoryTree()).Returns(BuildCategoryTree());
         }
 
-        private static Category BuildCategoryTree()
+        private static IList<Category> BuildCategoryTree()
         {
-            return new Category()
+            return new List<Category>()
             {
+                new Category() {
                 ID = 1,
                 Name = "Root Category",
                 SubCategories = new List<Category>()
@@ -26,7 +27,13 @@ namespace Core
                     {
                         ID = 1,
                         Name = "Cars",
-                        Products = new List<Product>()
+                        SubCategories = new List<Category>()
+                        {
+                            new Category()
+                            {
+                                ID = 10,
+                                Name = "Off Road",
+                                Products = new List<Product>()
                         {
                             new Product()
                             {
@@ -37,10 +44,33 @@ namespace Core
                             new Product()
                             {
                                 ID = 2,
-                                Name = "Nissan",
+                                Name = "Super Jeep",
                                 Price = 500
                             }
                         }
+                            },
+                            new Category()
+                            {
+                                ID = 10,
+                                Name = "Light",
+                                Products = new List<Product>()
+                        {
+                            new Product()
+                            {
+                                ID = 1,
+                                Name = "Mini",
+                                Price = 100
+                            },
+                            new Product()
+                            {
+                                ID = 2,
+                                Name = "Super mini",
+                                Price = 50
+                            }
+                        }
+                            }
+                        },
+                        
                     },
                     new Category()
                     {
@@ -63,10 +93,11 @@ namespace Core
                         }
                     }
                 }
+                }
             };
         }
 
-        public Category GetCategoryTree()
+        public IList<Category> GetCategoryTree()
         {
             return BuildCategoryTree();
         }

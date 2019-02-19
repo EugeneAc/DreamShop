@@ -1,6 +1,15 @@
 <div class="container-fluid">
     <div class="row">
         <h2>{{message}}</h2>
-
+        
+    </div>
+    <div>
+        <treecontrol class="tree-light"
+                     tree-model="treeModel"
+                     options="treeOptions"
+                     on-selection="showSelected(node)"
+                     selected-node="node1">
+            Категория: {{node.name}}
+        </treecontrol>
     </div>
 </div>

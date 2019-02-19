@@ -1,4 +1,4 @@
-
+п»ї
 dreamShopApp.controller('CategoryController', ['$scope', '$http', function ($scope, $http) {
-    $scope.title = "Расшифровка категории товаров";
+    $scope.title = "Р Р°СЃС€РёС„СЂРѕРІРєР° РєР°С‚РµРіРѕСЂРёРё С‚РѕРІР°СЂРѕРІ";
 }]);

@@ -1,9 +1,9 @@
-
-dreamShopApp.controller('HomeController', ['$scope', function ($scope) {
-    $scope.message = "Все категории";
+п»ї
+dreamShopApp.controller('HomeController', ['$scope', '$http', function ($scope, $http) {
+	$scope.message = "Р’СЃРµ РєР°С‚РµРіРѕСЂРёРё";
     $scope.treeModel = {};
 
-    $scope.GetCategoryTree = function (user) {
+    (function () {
         $http({
             method: 'GET',
             url: '/api/shop/GetCategoryTree'
@@ -12,5 +12,12 @@ dreamShopApp.controller('HomeController', ['$scope', function ($scope) {
         }, function (error) {
             console.log(error);
         });
+    })();
+
+    $scope.treeOptions = {
+        nodeChildren: "subCategories",
+        dirSelectable: true
     };
+
+    
 }]);

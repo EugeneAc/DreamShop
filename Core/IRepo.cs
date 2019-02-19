@@ -6,6 +6,6 @@ namespace Core
 {
     public interface IRepo
     {
-        Category GetCategoryTree();
+        IList<Category> GetCategoryTree();
     }
 }

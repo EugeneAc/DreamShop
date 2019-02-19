@@ -19,9 +19,9 @@ namespace DreamShop.Controllers
         }
 
         [HttpGet]
-        public Category GetCategoryTree()
+        public Category[] GetCategoryTree()
         {
-            return _repo.GetCategoryTree();
+            return _repo.GetCategoryTree().ToArray();
         }
     }
 }
