@@ -22,6 +22,11 @@ gulp.task('copy-lib-css', function () {
         .pipe(gulp.dest(root_path.webroot + '/css/'));
     gulp.src('./bower_components/toastr/toastr.min.css')
         .pipe(gulp.dest(root_path.webroot + '/css/'));
+
+    gulp.src('./bower_components/angular-tree-control/css/tree-control.css')
+        .pipe(gulp.dest(root_path.webroot + '/css/'));
+    gulp.src('./bower_components/angular-tree-control/css/tree-control-attribute.css')
+        .pipe(gulp.dest(root_path.webroot + '/css/'));
 });
 
 gulp.task('copy-lib-js', function () {
@@ -38,6 +43,11 @@ gulp.task('copy-lib-js', function () {
         .pipe(gulp.dest(root_path.package_lib + 'angular/'));
     gulp.src('./bower_components/angular-ui-router/release/angular-ui-router.min.js')
         .pipe(gulp.dest(root_path.package_lib + 'angular/'));
+
+    gulp.src('./bower_components/angular-tree-control/angular-tree-control.js')
+        .pipe(gulp.dest(root_path.package_lib + 'angular-tree-control/'));
+    gulp.src('./bower_components/angular-tree-control/angular-tree-control.js')
+        .pipe(gulp.dest(root_path.package_lib + 'angular-tree-control/'));
 });
 
 gulp.task('min-js', function () {

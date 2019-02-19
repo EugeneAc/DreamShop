@@ -45,6 +45,13 @@ namespace DreamShop
 
 
             services.AddMvc();
+            services.AddCors(o => o.AddPolicy("AppPolicy", b =>
+            {
+                b.AllowAnyOrigin()
+                    .AllowAnyMethod()
+                    .AllowAnyHeader();
+            }));
+
             // Autofac
             var builder = new ContainerBuilder();
             builder.Populate(services);
@@ -60,11 +67,6 @@ namespace DreamShop
             loggerFactory.AddConsole(this.Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
 
-            DefaultFilesOptions options = new DefaultFilesOptions();
-            options.DefaultFileNames.Clear();
-            options.DefaultFileNames.Add("/index.html");
-            app.UseDefaultFiles(options);
-
             app.Use(async (context, next) =>
             {
                 await next();
@@ -76,12 +78,13 @@ namespace DreamShop
                 }
             });
 
-            //app.UseMvc(routes =>
-            //{
-            //    routes.MapRoute(
-            //        name: "default",
-            //        template: "{controller=Home}/{action=Index}/{id?}");
-            //});
+            DefaultFilesOptions options = new DefaultFilesOptions();
+            options.DefaultFileNames.Clear();
+            options.DefaultFileNames.Add("/index.html");
+            app.UseDefaultFiles(options);
+            app.UseStaticFiles();
+            app.UseFileServer(enableDirectoryBrowsing: false);
+            app.UseMvc();
         }
     }
 }

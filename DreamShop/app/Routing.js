@@ -1,4 +1,4 @@
-﻿dreamShopApp.config(['$locationProvider', '$stateProvider', '$urlRouterProvider', '$urlMatcherFactoryProvider', '$compileProvider',
+dreamShopApp.config(['$locationProvider', '$stateProvider', '$urlRouterProvider', '$urlMatcherFactoryProvider', '$compileProvider',
     function ($locationProvider, $stateProvider, $urlRouterProvider, $urlMatcherFactoryProvider, $compileProvider) {
 
         //console.log('Appt.Main is now running')
@@ -12,26 +12,24 @@
         $compileProvider.debugInfoEnabled(false);
 
         $stateProvider
-            .state('home', {
-                url: '/',
-                templateUrl: './views/home/home.html',
-                controller: 'HomeController'
-            })
-            .state('dashboard', {
-                url: '/dashboard',
-                templateUrl: './views/home/home.html',
-                controller: 'HomeController'
-            })
-            .state('user', {
-                url: '/user',
-                templateUrl: './views/user/user.html',
-                controller: 'UserController'
-            })
-            .state('about', {
-                url: '/about',
-                templateUrl: './views/about/about.html',
-                controller: 'AboutController'
-            });
+            .state('home',
+                {
+                    url: '/',
+                    templateUrl: './views/home/home.html',
+                    controller: 'HomeController'
+                })
+            .state('category',
+                {
+                    url: '/category',
+                    templateUrl: './views/category/category.html',
+                    controller: 'CategoryController'
+                })
+            .state('product',
+                {
+                    url: '/product',
+                    templateUrl: './views/product/product.html',
+                    controller: 'ProductController'
+                });
 
         $urlRouterProvider.otherwise('/home');
-    }]);
+    }]); 

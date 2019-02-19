@@ -1,4 +1,4 @@
-﻿var dreamShopApp;
+var dreamShopApp;
 (
     function () {
         'use strict';
