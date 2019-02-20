@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Core
+﻿namespace Core
 {
     public class Product
     {
@@ -12,4 +8,5 @@ namespace Core
         public int Quantity { get; set; }
         public byte[] Image { get; set; }
     }
+
 }

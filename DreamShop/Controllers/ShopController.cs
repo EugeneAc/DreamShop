@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Linq;
 using Core;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DreamShop.Controllers
@@ -22,6 +18,18 @@ namespace DreamShop.Controllers
         public Category[] GetCategoryTree()
         {
             return _repo.GetCategoryTree().ToArray();
+        }
+
+        [HttpGet]
+        public Product GetProduct(int productId)
+        {
+            return _repo.GetProduct(productId);
+        }
+
+        [HttpGet]
+        public Product[] GetCategoryProducts(int CategoryId)
+        {
+            return _repo.GetCategoryProducts(CategoryId).ToArray();
         }
     }
 }

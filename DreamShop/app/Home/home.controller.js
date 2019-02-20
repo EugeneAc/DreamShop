@@ -1,7 +1,10 @@
-﻿
-dreamShopApp.controller('HomeController', ['$scope', '$http', function ($scope, $http) {
-	$scope.message = "Все категории";
+﻿dreamShopApp.controller('HomeController', ['$scope', '$http', function ($scope, $http) {
+    $scope.allCategories = "Все категории";
+    $scope.titleProduct = "";
+    $scope.titleCategory = "";
     $scope.treeModel = {};
+    $scope.categoryProducts = {};
+    $scope.chosenProduct = {};
 
     (function () {
         $http({
@@ -14,10 +17,32 @@ dreamShopApp.controller('HomeController', ['$scope', '$http', function ($scope, 
         });
     })();
 
+    $scope.showSelected = function (node) {
+        $scope.titleCategory = node.name;
+        $http({
+            method: 'GET',
+            url: '/api/shop/GetCategoryProducts?CategoryId=' + node.id
+        }).then(function (response) {
+            $scope.categoryProducts = response.data;
+        }, function (error) {
+            console.log(error);
+        });
+    };
+
+    $scope.getProduct = function (product) {
+        $scope.titleProduct = product.name;
+        $http({
+            method: 'GET',
+            url: '/api/shop/GetProduct?productId=' + product.id
+        }).then(function (response) {
+            $scope.chosenProduct = response.data;
+        }, function (error) {
+            console.log(error);
+        });
+    };
+
     $scope.treeOptions = {
         nodeChildren: "subCategories",
         dirSelectable: true
     };
-
-    
 }]);

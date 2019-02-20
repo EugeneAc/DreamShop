@@ -1,15 +1,41 @@
-<div class="container-fluid">
-    <div class="row">
-        <h5>{{message}}</h5>
-        
+﻿<div class="container-fluid">
+    <div class="row windowBar">
+        <div class="titlebar">{{allCategories}}</div>
+        <div class="closebutton"></div>
+        <div>
+            <treecontrol class="tree-light"
+                         tree-model="treeModel"
+                         options="treeOptions"
+                         on-selection="showSelected(node)"
+                         selected-node="node1">
+                {{node.name}}
+            </treecontrol>
+        </div>
     </div>
-    <div>
-        <treecontrol class="tree-light"
-                     tree-model="treeModel"
-                     options="treeOptions"
-                     on-selection="showSelected(node)"
-                     selected-node="node1">
-                     {{node.name}}
-        </treecontrol>
+    <div class="row windowBar">
+        <div class="titlebar">{{titleCategory}}</div>
+        <div class="closebutton"></div>
+        <div>
+            <ul>
+                <li ng-repeat="prod in categoryProducts">
+                    <a ng-click="getProduct(prod)">
+                        <b>Id:{{prod.id}}</b>
+                        <b>Name: {{prod.name}}</b>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="row windowBar">
+        <div class="titlebar">{{titleProduct}}</div>
+        <div class="closebutton"></div>
+        <ul ng-if="!equals({}, chosenProduct)">
+            <li>
+                Название:{{chosenProduct.name}}
+            </li>
+            <li>
+                Цена: {{chosenProduct.price}}
+            </li>
+        </ul>
     </div>
 </div>

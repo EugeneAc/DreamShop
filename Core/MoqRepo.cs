@@ -1,6 +1,7 @@
 ﻿using Moq;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace Core
@@ -25,25 +26,25 @@ namespace Core
                 {
                     new Category()
                     {
-                        ID = 1,
+                        ID = 2,
                         Name = "Cars",
                         SubCategories = new List<Category>()
                         {
                             new Category()
                             {
-                                ID = 10,
+                                ID = 3,
                                 Name = "Off Road",
                                 Products = new List<Product>()
                         {
                             new Product()
                             {
-                                ID = 1,
+                                ID = 4,
                                 Name = "Jeep",
                                 Price = 1000
                             },
                             new Product()
                             {
-                                ID = 2,
+                                ID = 5,
                                 Name = "Super Jeep",
                                 Price = 500
                             }
@@ -51,19 +52,19 @@ namespace Core
                             },
                             new Category()
                             {
-                                ID = 10,
+                                ID = 6,
                                 Name = "Light",
                                 Products = new List<Product>()
                         {
                             new Product()
                             {
-                                ID = 1,
+                                ID = 7,
                                 Name = "Mini",
                                 Price = 100
                             },
                             new Product()
                             {
-                                ID = 2,
+                                ID = 8,
                                 Name = "Super mini",
                                 Price = 50
                             }
@@ -74,19 +75,19 @@ namespace Core
                     },
                     new Category()
                     {
-                        ID = 2,
+                        ID = 9,
                         Name = "Food",
                         Products = new List<Product>()
                         {
                             new Product()
                             {
-                                ID = 3,
+                                ID = 10,
                                 Name = "Pizza",
                                 Price = 2
                             },
                             new Product()
                             {
-                                ID = 4,
+                                ID = 11,
                                 Name = "Tea",
                                 Price = 1
                             }
@@ -101,5 +102,17 @@ namespace Core
         {
             return BuildCategoryTree();
         }
+
+        public IEnumerable<Product> GetCategoryProducts(int categoryId)
+        {
+            return BuildCategoryTree().SelectMany(s => s.GetProductsInCategory(categoryId));      
+        }
+
+        public Product GetProduct(int productId)
+        {
+            return BuildCategoryTree().Select(s => s.SearchProduct(productId)).FirstOrDefault();
+        }
+
+        
     }
 }
