@@ -29,18 +29,5 @@ dreamShopApp.config(['$locationProvider', '$stateProvider', '$urlRouterProvider'
                     templateUrl: './views/home/home.html',
                     controller: 'HomeController'
                 })
-            .state('category',
-                {
-                    url: '/category',
-                    templateUrl: './views/category/category.html',
-                    controller: 'CategoryController'
-                })
-            .state('product',
-                {
-                    url: '/product',
-                    templateUrl: './views/product/product.html',
-                    controller: 'ProductController'
-                });
-
         $urlRouterProvider.otherwise('/home');
     }]); 
