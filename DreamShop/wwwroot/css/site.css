@@ -26,3 +26,16 @@
 .container-fluid {
     display: flex;
 }
+
+.card {
+    margin: 20px;
+    width: 100%;
+}
+
+ul {
+    margin: 10px;
+}
+
+a:hover {
+    cursor: pointer;
+}

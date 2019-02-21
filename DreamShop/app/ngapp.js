@@ -28,6 +28,6 @@ dreamShopApp.config(['$locationProvider', '$stateProvider', '$urlRouterProvider'
                     url: '/',
                     templateUrl: './views/home/home.html',
                     controller: 'HomeController'
-                })
+                });
         $urlRouterProvider.otherwise('/home');
     }]); 

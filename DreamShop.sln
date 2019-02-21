@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28306.52
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DreamShop", "DreamShop\DreamShop.csproj", "{094C8438-CDD3-4E7A-A8F0-9376239F8989}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DreamShop", "DreamShop\DreamShop.csproj", "{094C8438-CDD3-4E7A-A8F0-9376239F8989}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "Core\Core.csproj", "{8040F5E2-027E-4C9D-9D7F-C1E35B1BBDA6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core", "Core\Core.csproj", "{8040F5E2-027E-4C9D-9D7F-C1E35B1BBDA6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DreamShop.Tests", "DreamShop.Tests\DreamShop.Tests.csproj", "{E1FAC58D-2635-4FFF-AC40-DB58F118AAF6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{8040F5E2-027E-4C9D-9D7F-C1E35B1BBDA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8040F5E2-027E-4C9D-9D7F-C1E35B1BBDA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8040F5E2-027E-4C9D-9D7F-C1E35B1BBDA6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E1FAC58D-2635-4FFF-AC40-DB58F118AAF6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E1FAC58D-2635-4FFF-AC40-DB58F118AAF6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E1FAC58D-2635-4FFF-AC40-DB58F118AAF6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E1FAC58D-2635-4FFF-AC40-DB58F118AAF6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

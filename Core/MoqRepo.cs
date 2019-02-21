@@ -8,14 +8,8 @@ namespace Core
 {
     public class MoqRepo : IRepo
     {
-        private static readonly Mock<IRepo> _mock;
-        static MoqRepo()
-        {
-            _mock = new Mock<IRepo>();
-            _mock.Setup(repo => repo.GetCategoryTree()).Returns(BuildCategoryTree());
-        }
-
-        private static IList<Category> BuildCategoryTree()
+        
+        public static IList<Category> FillData()
         {
             return new List<Category>()
             {
@@ -100,17 +94,17 @@ namespace Core
 
         public IList<Category> GetCategoryTree()
         {
-            return BuildCategoryTree();
+            return FillData();
         }
 
         public IEnumerable<Product> GetCategoryProducts(int categoryId)
         {
-            return BuildCategoryTree().SelectMany(s => s.GetProductsInCategory(categoryId));      
+            return FillData().SelectMany(s => s.GetProductsInCategory(categoryId));      
         }
 
         public Product GetProduct(int productId)
         {
-            return BuildCategoryTree().Select(s => s.SearchProduct(productId)).FirstOrDefault();
+            return FillData().Select(s => s.SearchProduct(productId)).FirstOrDefault();
         }
 
         

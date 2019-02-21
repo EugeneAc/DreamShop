@@ -16,26 +16,32 @@
         <div class="titlebar">{{titleCategory}}</div>
         <div class="closebutton"></div>
         <div>
-            <ul>
-                <li ng-repeat="prod in categoryProducts">
-                    <a ng-click="getProduct(prod)">
-                        <b>Id:{{prod.id}}</b>
-                        <b>Name: {{prod.name}}</b>
+            <div>
+                <div class="card" ng-repeat="prod in categoryProducts">
+                    <a class="card-body" ng-click="getProduct(prod)">
+                        <ul>
+                            <li>Id:{{prod.id}}</li>
+                            <li>Название: {{prod.name}}</li>
+                        </ul>
                     </a>
-                </li>
-            </ul>
+                </div>
+            </div>
         </div>
     </div>
     <div class="row windowBar">
         <div class="titlebar">{{titleProduct}}</div>
         <div class="closebutton"></div>
-        <ul ng-if="!equals({}, chosenProduct)">
-            <li>
-                Название:{{chosenProduct.name}}
-            </li>
-            <li>
-                Цена: {{chosenProduct.price}}
-            </li>
-        </ul>
+        <div class="card">
+            <div class="card-body">
+                <ul>
+                    <li>
+                        Название:{{chosenProduct.name}}
+                    </li>
+                    <li>
+                        Цена: {{chosenProduct.price}}
+                    </li>
+                </ul>
+            </div>
+        </div>
     </div>
 </div>
