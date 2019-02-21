@@ -5,6 +5,7 @@
     $scope.treeModel = {};
     $scope.categoryProducts = {};
     $scope.chosenProduct = {};
+    $scope.showProduct = 0;
 
     (function () {
         $http({
@@ -12,6 +13,7 @@
             url: '/api/shop/GetCategoryTree'
         }).then(function (response) {
             $scope.treeModel = response.data;
+           
         }, function (error) {
             console.log(error);
         });
@@ -36,6 +38,7 @@
             url: '/api/shop/GetProduct?productId=' + product.id
         }).then(function (response) {
             $scope.chosenProduct = response.data;
+            $scope.showProduct = 1;
         }, function (error) {
             console.log(error);
         });
